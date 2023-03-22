@@ -15,8 +15,9 @@ contract SimpleToken is ERC20 {
     constructor(
         string memory _name,
         string memory _symbol,
-        uint8 __decimals,
-        uint256 _totalSupply
+        uint256 _totalSupply,
+        uint8 __decimals
+        
     ) ERC20(_name, _symbol , _totalSupply) payable {
         _decimals=__decimals;
        
