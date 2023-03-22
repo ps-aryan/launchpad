@@ -12,15 +12,15 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("0.001");
 
-  const SimpleToken = await hre.ethers.getContractFactory("SimpleToken");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const Lock = await hre.ethers.getContractFactory("SimpleToken");
+  const lock = await Lock.deploy("Pixel" , "PX" , 1000 , 1);
 
-  await SimpleToken.deployed();
+  await lock.deployed();
 
   console.log(
     `Lock with ${ethers.utils.formatEther(
       lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${SimpleToken.address}`
+    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
   );
 }
 
